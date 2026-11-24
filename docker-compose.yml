@@ -1,0 +1,15 @@
+services:
+  contact-api:
+    build: .
+    container_name: contact-api
+    ports:
+      - "8080:8080"
+    environment:
+      SMTP_HOST: smtp.server.de
+      SMTP_PORT: 587
+      SMTP_USERNAME: kontakt@server.de
+      SMTP_PASSWORD: "YOUR_EMAIL_PASSWORD"
+      RECIPIENT_EMAIL: kontakt@server.de
+      CORS_ALLOW_ORIGIN: "https://server.de,https://www.server.de"
+      SEND_STARTUP_TEST_MAIL: "true"
+    restart: unless-stopped
